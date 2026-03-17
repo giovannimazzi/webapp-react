@@ -11,9 +11,9 @@ export default function App() {
         <Route index Component={HomePage} />
 
         {/* MOVIE ROUTES*/}
-        <Route path="/movies">
+        <Route path="movies">
           <Route index Component={MovieListPage} />
-          <Route path="/:id" Component={MovieDetailPage} />
+          <Route path=":id" Component={MovieDetailPage} />
         </Route>
       </Routes>
     </BrowserRouter>
