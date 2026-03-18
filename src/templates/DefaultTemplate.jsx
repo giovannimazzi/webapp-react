@@ -28,13 +28,14 @@ export default function DefaultTemplate() {
               </li>
               <li className="nav-item">
                 <NavLink to="/movies" className="nav-link" aria-current="page">
-                  Catalogo Film
+                  Movie list
                 </NavLink>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
       <main>
         <div className="container py-5">
           <Outlet />

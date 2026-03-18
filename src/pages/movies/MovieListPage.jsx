@@ -14,7 +14,7 @@ export default function MovieListPage() {
 
   return (
     <>
-      <h1>Catalogo Film</h1>
+      <h1 className="mb-4">Movie list</h1>
       <MovieList movies={movies} />
     </>
   );
