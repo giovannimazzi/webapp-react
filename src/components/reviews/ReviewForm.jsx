@@ -10,7 +10,7 @@ const formInitialData = {
 export default function ReviewForm({ movieId, afterFormSubmit }) {
   const [formData, setFormData] = useState(formInitialData);
 
-  const handleFormChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -47,7 +47,7 @@ export default function ReviewForm({ movieId, afterFormSubmit }) {
           </label>
           <input
             value={formData.name}
-            onChange={handleFormChange}
+            onChange={handleInputChange}
             name="name"
             //
             className="form-control"
@@ -62,7 +62,7 @@ export default function ReviewForm({ movieId, afterFormSubmit }) {
           </label>
           <textarea
             value={formData.text}
-            onChange={handleFormChange}
+            onChange={handleInputChange}
             name="text"
             //
             className="form-control"
@@ -77,7 +77,7 @@ export default function ReviewForm({ movieId, afterFormSubmit }) {
           </label>
           <input
             value={formData.vote}
-            onChange={handleFormChange}
+            onChange={handleInputChange}
             name="vote"
             //
             className="form-control"

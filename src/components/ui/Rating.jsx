@@ -1,5 +1,7 @@
 export default function Rating({ vote, maxVote }) {
   function renderStars() {
+    if (!vote) return "N/D";
+
     const stars = [];
 
     for (let i = 1; i <= maxVote; i++) {
