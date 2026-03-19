@@ -1,16 +1,41 @@
+# Assegnazione del 19/03/20206
+
+repo: `webapp-react`
+
+### Esercizio
+
+Miglioriamo l’esperienza dell’utente inserendo
+
+MILESTONE 1 (BACKEND)
+
+- Predisponiamo un’API per **salvare nel database** una nuova recensione legata ad un film
+- Testiamola su postman e verifichiamo che nel DB venga effettivamente inserita una nuova recensione
+
+MILESTONE 2 (FRONTEND)
+
+- Creiamo un componente che contenga il form per le recensioni
+- Inseriamo questo componente nella pagina di dettaglio del film
+- All’invio del form, la nuova recensione viene salvata sul database e visualizzata nella pagina, in fondo alle altre
+
+**BONUS**:
+
+- Inseriamo una validazione nel form di recensione
+
+---
+
 # Assegnazione del 17/03/20206
 
 **Setup Web App React**
 
-repo: `webapp-react` 
+repo: `webapp-react`
 
-*ma lavoreremo anche su `webapp-express` (la stessa di ieri)*
+_ma lavoreremo anche su `webapp-express` (la stessa di ieri)_
 
 ### Esercizio
 
 Ora è il momento di prepararci al frontend della nostra Web App!
 
-MILESTONE 0 
+MILESTONE 0
 
 - Ragionare e preparare uno schemino per ompostare la struttura del lavoro in maniera da sfruttare la riutailizzabilità dei componenti React e le loro props.
 
@@ -24,8 +49,8 @@ MILESTONE 2
 
 - Creiamo un layout di base per la nostra applicazione ed impostiamo le rotte per le diverse pagine.
 - Creiamo 2 pagine:
-    - La home, in cui mostreremo la lista dei film
-    - La pagina di dettaglio di un singolo film
+  - La home, in cui mostreremo la lista dei film
+  - La pagina di dettaglio di un singolo film
 
 MILESTONE 3
 
