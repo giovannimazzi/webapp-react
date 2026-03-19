@@ -2,7 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Rating from "../../components/ui/Rating";
-import ReviewCard from "../reviews/ReviewCard";
+import ReviewCard from "../../components/reviews/ReviewCard";
+import ReviewForm from "../../components/reviews/ReviewForm";
 
 export default function MovieDetailPage() {
   const { id } = useParams();
@@ -58,6 +59,10 @@ export default function MovieDetailPage() {
         {movie.reviews.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}
+      </section>
+
+      <section className="my-5">
+        <ReviewForm movieId={id} afterFormSubmit={fetchMovie} />
       </section>
     </>
   );
