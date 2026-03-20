@@ -45,7 +45,7 @@ export default function MovieDetailPage() {
         <h1 className="m-0">{movie.title}</h1>
 
         <div className="d-flex gap-2 aling-items-center">
-          <Link className="btn btn-primary" to="/books">
+          <Link className="btn btn-primary" to="/movies">
             Back to list
           </Link>
         </div>

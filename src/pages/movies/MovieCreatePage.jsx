@@ -45,7 +45,7 @@ export default function MovieCreatePage() {
       .post(`http://localhost:3000/movies`, formData, config)
       .then((res) => {
         const { insertId } = res.data;
-        showNotification("Book successfully created", "success");
+        showNotification("Movie successfully created", "success");
         navigate(`/movies/${insertId}`);
       })
       .catch((err) => {
