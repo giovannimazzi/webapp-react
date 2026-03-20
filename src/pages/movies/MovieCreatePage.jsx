@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useLoaderContext } from "../../contexts/LoaderContext";
+import { useNotificationContext } from "../../contexts/NotificationContext";
 
 const initialFormData = {
   title: "",
@@ -14,6 +16,8 @@ const initialFormData = {
 export default function MovieCreatePage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialFormData);
+  const { startLoading, endLoading } = useLoaderContext();
+  const { showNotification } = useNotificationContext();
 
   const handleInputChange = (e) => {
     const { name, value, type } = e.target;
@@ -33,13 +37,21 @@ export default function MovieCreatePage() {
   };
 
   const storeMovie = () => {
+    startLoading();
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
-    axios.post(`http://localhost:3000/movies`, formData, config).then((res) => {
-      const { insertId } = res.data;
-      navigate(`/movies/${insertId}`);
-    });
+    axios
+      .post(`http://localhost:3000/movies`, formData, config)
+      .then((res) => {
+        const { insertId } = res.data;
+        showNotification("Book successfully created", "success");
+        navigate(`/movies/${insertId}`);
+      })
+      .catch((err) => {
+        showNotification(err.message, "danger");
+        endLoading();
+      });
   };
 
   return (
@@ -59,6 +71,7 @@ export default function MovieCreatePage() {
             className="form-control"
             type="text"
             id="title"
+            required
           />
         </div>
 
@@ -74,6 +87,7 @@ export default function MovieCreatePage() {
             className="form-control"
             type="text"
             id="director"
+            required
           />
         </div>
 
@@ -88,6 +102,7 @@ export default function MovieCreatePage() {
             className="form-control"
             type="file"
             id="image"
+            required
           />
         </div>
 
@@ -103,6 +118,7 @@ export default function MovieCreatePage() {
             className="form-control"
             type="text"
             id="genre"
+            required
           />
         </div>
 
@@ -120,6 +136,7 @@ export default function MovieCreatePage() {
             id="release_year"
             min={1895}
             max={new Date().getFullYear()}
+            required
           />
         </div>
 
@@ -136,6 +153,7 @@ export default function MovieCreatePage() {
             type="text"
             id="abstract"
             rows={4}
+            required
           />
         </div>
 

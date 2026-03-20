@@ -1,13 +1,18 @@
-import { NavLink, Outlet } from "react-router";
+import { Link, NavLink, Outlet } from "react-router";
+import { useLoaderContext } from "../contexts/LoaderContext";
+import { useNotificationContext } from "../contexts/NotificationContext";
 
 export default function DefaultTemplate() {
+  const { isLoading } = useLoaderContext();
+  const { notification, hideNotification } = useNotificationContext();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link to="/" className="navbar-brand">
             Webapp React
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -37,7 +42,35 @@ export default function DefaultTemplate() {
       </nav>
 
       <main>
+        {isLoading && (
+          <div className="overlay-loading">
+            <h1>Loading...</h1>
+          </div>
+        )}
+
         <div className="container py-5">
+          {notification.visible && (
+            <div>
+              <div
+                className={`alert alert-${notification.type} alert-dismissible fade show mb-4`}
+                role="alert"
+              >
+                {notification.message}
+
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                  onClick={() => {
+                    setTimeout(() => {
+                      hideNotification();
+                    }, 800);
+                  }}
+                ></button>
+              </div>
+            </div>
+          )}
           <Outlet />
         </div>
       </main>

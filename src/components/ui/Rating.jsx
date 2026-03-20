@@ -12,5 +12,5 @@ export default function Rating({ vote, maxVote }) {
     return stars;
   }
 
-  return <>{renderStars()}</>;
+  return <div>{renderStars()}</div>;
 }

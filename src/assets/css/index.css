@@ -4,7 +4,7 @@
 }
 
 .review-avatar {
-  height: 30px;
+  height: 35px;
   aspect-ratio: 1;
   background-color: blueviolet;
   color: white;
@@ -24,4 +24,16 @@
 
 .review-item:last-child {
   border: none !important;
+}
+
+.overlay-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(200, 200, 200, 0.2);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

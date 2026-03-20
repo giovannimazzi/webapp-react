@@ -12,7 +12,7 @@ export default function MovieCard({ movie }) {
           <div className="my-2">
             <Rating vote={Math.ceil(movie.average_vote)} maxVote={5} />
           </div>
-          <p className="card-text">{movie.abstract}</p>
+          <p>{movie.abstract}</p>
         </div>
 
         <Link to={`/movies/${movie.id}`}>See more</Link>
